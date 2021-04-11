@@ -45,6 +45,11 @@ public class HomeController {
 8. src/main/resources/static/js/app.js:
 alert("Hello World");
 
+9. HTTPSession:
+public String index(HttpSession session){
+        session.setAttribute("count", 0);
+        Integer count = (Integer) session.getAttribute("count");
+}
 
 
 
