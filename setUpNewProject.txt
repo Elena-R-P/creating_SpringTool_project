@@ -1,0 +1,29 @@
+1. Java SE Development Kit 8 Downloads:
+https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
+
+2. Spring Tool Suite:
+https://spring.io/tools
+
+3. Extentions for VS Code:
+- Spring Boot Support
+- Cloud Foundry Manifest YML Support
+- Concourse CI Pipeline Editor
+- Spring Initializr Java Support
+- Spring Boot Dashboard
+
+4. Homebrew: 
+https://brew.sh/
+
+in terminal
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/elena/.profile
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+brew help
+sudo apt-get install build-essential
+brew install gcc
+brew install maven
+sudo apt install maven
+
