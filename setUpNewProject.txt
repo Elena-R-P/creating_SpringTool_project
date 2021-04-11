@@ -1,29 +1,53 @@
-1. Java SE Development Kit 8 Downloads:
-https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
+1. Dependencies in pom.hml
+GroupID: org.apache.tomcat.embed
+ArtifactID: tomcat-embed-jasper
 
-2. Spring Tool Suite:
-https://spring.io/tools
+GroupID: javax.servlet
+ArtifactID: jstl
 
-3. Extentions for VS Code:
-- Spring Boot Support
-- Cloud Foundry Manifest YML Support
-- Concourse CI Pipeline Editor
-- Spring Initializr Java Support
-- Spring Boot Dashboard
+2. src/main/resources/applications.properties:
+spring.mvc.view.prefix=/WEB-INF/
 
-4. Homebrew: 
-https://brew.sh/
+3. src/main/webapp/WEB-INF
+4. /src/main/webapp/WEB-INF/index.jsp:
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
-in terminal
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+<body>
+<c:out value="${2+2}"/>
 
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/elena/.profile
+5. Controller.java:
+package com.codingdojo.controllerspractice.controllers;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+@Controller
+public class HomeController {
+    @RequestMapping("/")
+    public String index(Model model) {
+        model.addAttribute("dojoName", "Burbank");
+        return "index.jsp";
+    }
+}
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+6. src/main/resources/static/index.html:
+<!DOCTYPE html>
+<html>
+<head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+        <h1>Hello World</h1>
+</body>
+</html>
 
-brew help
-sudo apt-get install build-essential
-brew install gcc
-brew install maven
-sudo apt install maven
+7. src/main/resources/static/css/style.css
+8. src/main/resources/static/js/app.js:
+alert("Hello World");
+
+
+
+
+
+
 
