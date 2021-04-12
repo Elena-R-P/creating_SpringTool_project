@@ -70,7 +70,9 @@ public String index(HttpSession session){
         Integer count = (Integer) session.getAttribute("count");
 }
 
-
+10. Forms:
+<form method="POST" action="/">
+</form>
 
 
 
