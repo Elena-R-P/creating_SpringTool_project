@@ -11,6 +11,21 @@ ArtifactID: tomcat-embed-jasper
 GroupID: javax.servlet
 ArtifactID: jstl
 
+GroupID: org.springframework.boot
+ArtifactID: spring-boot-starter-data-jpa
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+GroupID: mysql
+ArtifactID: mysql-connector-java
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <scope>runtime</scope>
+</dependency>
+
 2. src/main/resources/applications.properties:
 spring.mvc.view.prefix=/WEB-INF/
 
