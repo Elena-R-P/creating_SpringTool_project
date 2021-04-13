@@ -1,3 +1,9 @@
+0. MVC(when creating new project):
+DevTools
+Web
+MySQL
+JPA
+
 1. Dependencies in pom.hml
 GroupID: org.apache.tomcat.embed
 ArtifactID: tomcat-embed-jasper
@@ -75,6 +81,7 @@ public String index(HttpSession session){
 10. Forms:
 <form method="POST" action="/">
 </form>
+
 
 
 
