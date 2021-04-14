@@ -98,9 +98,84 @@ public String index(HttpSession session){
         Integer count = (Integer) session.getAttribute("count");
 }
 
-10. Forms:
+10. Forms in jsp:
 <form method="POST" action="/">
 </form>
+
+11. Setup Models:
+@Entity
+@Table(name="books")
+public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotNull
+    @Size(min = 5, max = 200)
+    private String title;
+    @NotNull
+    @Size(min = 5, max = 200)
+    private String description;
+    @NotNull
+    @Size(min = 3, max = 40)
+    private String language;
+    @NotNull
+    @Min(100)
+    private Integer numberOfPages;
+    // This will not allow the createdAt column to be updated after creation
+    @Column(updatable=false)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date createdAt;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date updatedAt;
+    
+    public Book() {
+    }
+    public Book(String title, String desc, String lang, int pages) {
+        this.title = title;
+        this.description = desc;
+        this.language = lang;
+        this.numberOfPages = pages;
+    }
+    
+    // other getters and setters removed for brevity
+    @PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
+}
+
+12. SetUp Repositories:
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ponomareva.updatedelete.models.Book;
+
+@Repository
+public interface BookRepository extends CrudRepository<Book, Long>{
+    // this method retrieves all the books from the database
+    List<Book> findAll();
+    
+    Optional<Book> findById(Long x);
+    // this method finds books with descriptions containing the search string
+    List<Book> findByDescriptionContaining(String search);
+    // this method counts how many titles contain a certain string
+    Long countByTitleContaining(String search);
+    // this method deletes a book that starts with a specific title
+    Long deleteByTitleStartingWith(String search);
+    
+    void deleteById(Long id);
+}
+
+13. SetUp Services:
+
+
 
 
 
