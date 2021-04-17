@@ -36,6 +36,10 @@ spring.jpa.hibernate.ddl-auto=update
 
 spring.mvc.hiddenmethod.filter.enabled=true
 
+// for registration (match passwords)
+2-b. src/main/resources/messages.properties
+Match.user.passwordConfirmation=Password and Password Confirmation must match
+
 3. src/main/webapp/WEB-INF
 4. /src/main/webapp/WEB-INF/index.jsp:
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
